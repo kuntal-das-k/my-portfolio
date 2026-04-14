@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import ChatWidget from "@/components/ChatWidget";
 
 /* ─── reveal hook ─────────────────────────────── */
 function useReveal(threshold = 0.15) {
@@ -927,6 +928,8 @@ export default function Home() {
             Built with <span style={{ color: "var(--neon-cyan)" }}>Next.js</span> &amp; <span style={{ color: "var(--neon-violet)" }}>Framer Motion</span>
           </p>
         </footer>
+            <ChatWidget />
+
 
       </main>
     </>
