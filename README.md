@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  Kuntal Das — Developer Portfolio
 
-## Getting Started
+A personal portfolio website built with **Next.js** and **TypeScript**, showcasing my projects, skills, and experience as a software developer.
 
-First, run the development server:
+---
+
+## 🌐 Live Demo
+
+[View Portfolio →](https://your-portfolio-url.com)
+
+---
+
+## ✨ Features
+
+- ⚡ Fast, server-side rendered pages with Next.js
+- 🔒 Fully typed codebase with TypeScript
+- 📱 Responsive design across all devices
+- 🎨 Clean, modern UI
+- 📬 Contact section for easy outreach
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Next.js 14 | Framework & routing |
+| TypeScript | Type safety |
+| CSS Modules / Tailwind | Styling |
+| Vercel | Deployment |
+
+---
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js `v18+`
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/kuntaldas/portfolio.git
+
+# Navigate to the project directory
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
 
-## Learn More
+```
+portfolio/
+├── app/           # Next.js App Router pages
+├── components/    # Reusable UI components
+├── public/        # Static assets
+├── styles/        # Global styles
+└── types/         # TypeScript type definitions
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚢 Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is deployed on **Vercel**. Any push to the `main` branch triggers an automatic deployment.
 
-## Deploy on Vercel
+```bash
+# Build for production
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📬 Contact
+
+**Kuntal Das**
+- GitHub: [@kuntaldas](https://github.com/kuntaldas)
+- LinkedIn: [linkedin.com/in/kuntaldas](https://linkedin.com/in/kuntaldas)
+- Email: your@email.com
+
+---
+
+⭐ If you like this portfolio, feel free to star the repo!
