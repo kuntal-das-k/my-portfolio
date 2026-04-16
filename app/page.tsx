@@ -463,16 +463,36 @@ export default function Home() {
               </li>
             ))}
             <li>
-              <button onClick={() => goTo("Contact")} style={{
-                background: "transparent", border: "1px solid var(--neon-cyan)",
-                color: "var(--neon-cyan)", borderRadius: "6px", padding: "0.45rem 1.1rem",
-                fontSize: "0.875rem", fontFamily: "var(--font-body)",
-                letterSpacing: "0.04em", transition: "background .2s, color .2s",
-              }}
-                onMouseEnter={e => { const b = e.currentTarget as HTMLButtonElement; b.style.background = "var(--neon-cyan)"; b.style.color = "#050508"; }}
-                onMouseLeave={e => { const b = e.currentTarget as HTMLButtonElement; b.style.background = "transparent"; b.style.color = "var(--neon-cyan)"; }}
-              >Hire me</button>
-            </li>
+              <a
+    href="/resume.pdf"
+    download
+    style={{
+      background: "transparent",
+      border: "1px solid var(--neon-cyan)",
+      color: "var(--neon-cyan)",
+      borderRadius: "6px",
+      padding: "0.45rem 1.1rem",
+      fontSize: "0.875rem",
+      fontFamily: "var(--font-body)",
+      letterSpacing: "0.04em",
+      transition: "background .2s, color .2s",
+      textDecoration: "none",
+      display: "inline-block",
+    }}
+    onMouseEnter={(e) => {
+      const b = e.currentTarget;
+      b.style.background = "var(--neon-cyan)";
+      b.style.color = "#050508";
+    }}
+    onMouseLeave={(e) => {
+      const b = e.currentTarget;
+      b.style.background = "transparent";
+      b.style.color = "var(--neon-cyan)";
+    }}
+  >
+    Download Resume
+  </a>
+</li>
           </ul>
 
           {/* hamburger */}
@@ -870,7 +890,86 @@ export default function Home() {
             </div>
           </div>
         </section>
+<section
+  style={{
+    padding: "6rem 2rem",
+    display: "flex",
+    justifyContent: "center",
+  }}
+>
+  <div
+    style={{
+      maxWidth: "700px",
+      width: "100%",
+      background: "rgba(10,10,20,0.7)",
+      backdropFilter: "blur(20px)",
+      border: "1px solid rgba(0,255,224,0.15)",
+      borderRadius: "16px",
+      padding: "2.5rem",
+      textAlign: "center",
+      boxShadow: "0 20px 60px rgba(0,255,224,0.08)",
+    }}
+  >
+    <h2
+      style={{
+        fontSize: "2rem",
+        fontWeight: 700,
+        color: "#fff",
+        marginBottom: "1rem",
+      }}
+    >
+      Resume
+    </h2>
 
+    <p
+      style={{
+        color: "#7a7a9a",
+        fontSize: "0.95rem",
+        marginBottom: "2rem",
+      }}
+    >
+      Download my resume to learn more about my skills, projects, and experience.
+    </p>
+
+    <div style={{ display: "flex", gap: "1rem", justifyContent: "center" }}>
+      
+      {/* View Resume */}
+      <a
+        href="/resume.pdf"
+        target="_blank"
+        style={{
+          padding: "0.7rem 1.5rem",
+          borderRadius: "8px",
+          border: "1px solid var(--border)",
+          color: "var(--text)",
+          textDecoration: "none",
+          fontSize: "0.85rem",
+          transition: "all 0.2s",
+        }}
+      >
+        View Resume
+      </a>
+
+      {/* Download Resume */}
+      <a
+        href="/resume.pdf"
+        download
+        style={{
+          padding: "0.7rem 1.5rem",
+          borderRadius: "8px",
+          background: "linear-gradient(135deg, #00ffe0, #b47fff)",
+          color: "#050508",
+          textDecoration: "none",
+          fontSize: "0.85rem",
+          fontWeight: 600,
+          transition: "all 0.2s",
+        }}
+      >
+        Download Resume
+      </a>
+    </div>
+  </div>
+</section>
         {/* ══════ CONTACT ══════ */}
         <section id="contact" style={{ padding: "7rem 5vw 5rem" }}>
           <div style={{ maxWidth: "720px", margin: "0 auto", textAlign: "center" }}>
