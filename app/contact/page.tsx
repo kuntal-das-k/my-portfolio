@@ -24,13 +24,13 @@ export default function ContactPage() {
       });
 
       if (res.ok) {
-        setSuccess("Message sent successfully ✨");
+        setSuccess("Message sent successfully ✓");
         setForm({ name: "", email: "", message: "" });
       } else {
-        setSuccess("Something went wrong ❌");
+        setSuccess("Something went wrong ✗");
       }
     } catch {
-      setSuccess("Error sending message ❌");
+      setSuccess("Error sending message ✗");
     }
 
     setLoading(false);
@@ -38,28 +38,47 @@ export default function ContactPage() {
     setTimeout(() => setSuccess(""), 3000);
   };
 
+  const pushEnter = (e: React.MouseEvent) => { const b = e.currentTarget as HTMLElement; b.style.transform = "translate(4px,4px)"; b.style.boxShadow = "0 0 0 0 #000"; };
+  const pushLeave = (e: React.MouseEvent) => { const b = e.currentTarget as HTMLElement; b.style.transform = "translate(0,0)"; b.style.boxShadow = "8px 8px 0px 0px #000"; };
+
   return (
     <div
       style={{
         minHeight: "100vh",
-        background: "#050508",
+        background: "#ffe17c",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         padding: "2rem",
+        position: "relative",
       }}
     >
-      {/* Glow background */}
-      <div
+      {/* dot pattern */}
+      <div style={{
+        backgroundImage: "radial-gradient(circle, #000 1px, transparent 1px)",
+        backgroundSize: "32px 32px",
+        opacity: 0.06,
+        position: "absolute",
+        inset: 0,
+        pointerEvents: "none",
+      }} />
+
+      {/* Back button */}
+      <a href="/"
         style={{
-          position: "absolute",
-          width: "500px",
-          height: "500px",
-          background:
-            "radial-gradient(circle, rgba(0,255,224,0.08), transparent 70%)",
-          filter: "blur(80px)",
+          position: "absolute", top: "2rem", left: "2rem",
+          display: "inline-flex", alignItems: "center", gap: "6px",
+          padding: "0.5rem 1rem", background: "#fff", border: "2px solid #000",
+          borderRadius: "8px", color: "#000", textDecoration: "none",
+          fontSize: "0.85rem", fontWeight: 700, fontFamily: "'Satoshi', sans-serif",
+          boxShadow: "3px 3px 0px 0px #000",
+          transition: "all 0.2s cubic-bezier(0.175,0.885,0.32,1.275)",
         }}
-      />
+        onMouseEnter={(e) => { const b = e.currentTarget; b.style.transform = "translate(2px,2px)"; b.style.boxShadow = "1px 1px 0px 0px #000"; }}
+        onMouseLeave={(e) => { const b = e.currentTarget; b.style.transform = "translate(0,0)"; b.style.boxShadow = "3px 3px 0px 0px #000"; }}
+      >
+        ← Back
+      </a>
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -67,20 +86,23 @@ export default function ContactPage() {
         style={{
           width: "100%",
           maxWidth: "520px",
-          background: "rgba(10,10,20,0.85)",
-          backdropFilter: "blur(20px)",
-          border: "1px solid rgba(0,255,224,0.2)",
-          borderRadius: "20px",
+          background: "#fff",
+          border: "2px solid #000",
+          borderRadius: "12px",
           padding: "2.5rem",
-          boxShadow: "0 20px 60px rgba(0,255,224,0.1)",
+          boxShadow: "8px 8px 0px 0px #000",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <h1
           style={{
             fontSize: "2rem",
-            fontWeight: "800",
-            marginBottom: "1rem",
-            color: "#fff",
+            fontWeight: 800,
+            marginBottom: "0.5rem",
+            color: "#000",
+            fontFamily: "'Cabinet Grotesk', sans-serif",
+            letterSpacing: "-0.03em",
           }}
         >
           Contact Me
@@ -88,12 +110,13 @@ export default function ContactPage() {
 
         <p
           style={{
-            color: "#7a7a9a",
+            color: "#171e19cc",
             marginBottom: "2rem",
             fontSize: "0.95rem",
+            fontFamily: "'Satoshi', sans-serif",
           }}
         >
-          Have an idea or opportunity? Let’s talk.
+          Have an idea or opportunity? Let&apos;s talk.
         </p>
 
         <form
@@ -140,17 +163,22 @@ export default function ContactPage() {
             type="submit"
             disabled={loading}
             style={{
-              padding: "0.75rem",
+              padding: "0.85rem",
               borderRadius: "10px",
-              border: "none",
-              background:
-                "linear-gradient(135deg, #00ffe0, #b47fff)",
-              color: "#050508",
-              fontWeight: 600,
+              border: "2px solid #000",
+              background: "#000",
+              color: "#fff",
+              fontWeight: 700,
+              fontSize: "0.9rem",
+              fontFamily: "'Satoshi', sans-serif",
               cursor: "pointer",
               marginTop: "0.5rem",
               opacity: loading ? 0.7 : 1,
+              boxShadow: "8px 8px 0px 0px #000",
+              transition: "all 0.2s cubic-bezier(0.175,0.885,0.32,1.275)",
             }}
+            onMouseEnter={pushEnter}
+            onMouseLeave={pushLeave}
           >
             {loading ? "Sending..." : "Send Message →"}
           </button>
@@ -161,7 +189,9 @@ export default function ContactPage() {
             style={{
               marginTop: "1rem",
               fontSize: "0.85rem",
-              color: "#00ffe0",
+              color: success.includes("✓") ? "#28c840" : "#e53e3e",
+              fontWeight: 700,
+              fontFamily: "'Satoshi', sans-serif",
             }}
           >
             {success}
@@ -172,12 +202,15 @@ export default function ContactPage() {
   );
 }
 
-const inputStyle = {
-  padding: "0.7rem 0.9rem",
+const inputStyle: React.CSSProperties = {
+  padding: "0.75rem 1rem",
   borderRadius: "10px",
-  border: "1px solid rgba(255,255,255,0.08)",
-  background: "rgba(255,255,255,0.03)",
-  color: "#fff",
+  border: "2px solid #000",
+  background: "#fff",
+  color: "#000",
   fontSize: "0.85rem",
+  fontWeight: 500,
+  fontFamily: "'Satoshi', sans-serif",
   outline: "none",
+  transition: "box-shadow 0.2s",
 };
